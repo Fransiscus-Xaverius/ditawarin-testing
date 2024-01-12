@@ -47,16 +47,14 @@ driver.find_element(By.ID, 'add_btn').click()
 
 time.sleep(1)
 
-if driver.find_element(By.ID, 'ubah_btn'):
-    print('Listing created, Testing passed')
-else:
-    print('Testing failed')
+driver.find_element(By.ID, 'ubah_btn').click()
 
-time.sleep(2)
+time.sleep(1)
+driver.find_element(By.ID, 'askprice_inp').send_keys('25000')
+driver.find_element(By.ID, 'tanggal_selesai').send_keys('12-12-2024')
+driver.find_element(By.ID, 'jam_selesai').send_keys('12:00')
+driver.find_element(By.ID, 'edit_btn').click()
 
-driver.quit()
+time.sleep(1)
 
-
-
-
-
+print('Testing passed')

@@ -47,16 +47,24 @@ driver.find_element(By.ID, 'add_btn').click()
 
 time.sleep(1)
 
-if driver.find_element(By.ID, 'ubah_btn'):
-    print('Listing created, Testing passed')
-else:
-    print('Testing failed')
+driver.find_element(By.ID, 'ubah_btn').click()
 
-time.sleep(2)
+time.sleep(1)
+driver.find_element(By.ID, 'edit_btn').click()
+time.sleep(1)
+
+testpass = False
+
+if driver.find_elements(By.XPATH, '//p[@style="color: red;"]'):
+    print("Warning Element exists")
+    testpass = True
+else:
+    print("Element does not exist")
+
+if testpass:
+    print("Testing passed")
+else:
+    print("Testing failed")
 
 driver.quit()
-
-
-
-
 

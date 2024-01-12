@@ -28,8 +28,8 @@ time.sleep(2)
 
 driver.find_element(By.ID, 'sell_btn').click()
 driver.find_element(By.ID, 'productname_inp').send_keys('test item')
-driver.find_element(By.ID, 'startprice_inp').send_keys('10000')
-driver.find_element(By.ID, 'askprice_inp').send_keys('20000')
+driver.find_element(By.ID, 'startprice_inp').send_keys('20000')
+driver.find_element(By.ID, 'askprice_inp').send_keys('10000')
 driver.find_element(By.ID, 'kec_inp').send_keys('Wiyung')
 driver.find_element(By.ID, 'kota_inp').send_keys('Surabaya')
 driver.find_element(By.ID, 'prov_inp').send_keys('Jawa Timur')
@@ -47,16 +47,12 @@ driver.find_element(By.ID, 'add_btn').click()
 
 time.sleep(1)
 
-if driver.find_element(By.ID, 'ubah_btn'):
-    print('Listing created, Testing passed')
-else:
+try:
+    driver.switch_to.alert.accept()
+    if driver.find_element(By.ID, 'add_btn'):
+        print('Listing not created, Testing passed')
+    else:
+        print('Testing failed')
+except:
     print('Testing failed')
-
-time.sleep(2)
-
-driver.quit()
-
-
-
-
 

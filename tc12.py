@@ -27,36 +27,19 @@ print("login is done")
 time.sleep(2)
 
 driver.find_element(By.ID, 'sell_btn').click()
-driver.find_element(By.ID, 'productname_inp').send_keys('test item')
-driver.find_element(By.ID, 'startprice_inp').send_keys('10000')
-driver.find_element(By.ID, 'askprice_inp').send_keys('20000')
-driver.find_element(By.ID, 'kec_inp').send_keys('Wiyung')
-driver.find_element(By.ID, 'kota_inp').send_keys('Surabaya')
-driver.find_element(By.ID, 'prov_inp').send_keys('Jawa Timur')
-
-driver.find_element(By.XPATH, "//input[@type='checkbox']").click()
-
-driver.find_element(By.ID, 'tanggal_selesai').send_keys('12-12-2024')
-driver.find_element(By.ID, 'jam_selesai').send_keys('12:00')
-
-driver.find_element(By.ID, 'desc_inp').send_keys('test description')
-
-input('Input anything to continue: ')
-
 driver.find_element(By.ID, 'add_btn').click()
 
 time.sleep(1)
 
-if driver.find_element(By.ID, 'ubah_btn'):
-    print('Listing created, Testing passed')
+if driver.find_elements(By.XPATH, '//p[@style="color: red;"]'):
+    print("Warning Element exists")
+    testpass = True
 else:
-    print('Testing failed')
+    print("Element does not exist")
 
-time.sleep(2)
+if testpass:
+    print("Testing passed")
+else:
+    print("Testing failed")
 
 driver.quit()
-
-
-
-
-
