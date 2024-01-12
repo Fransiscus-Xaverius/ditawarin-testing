@@ -30,6 +30,9 @@ else:
     print("URL does not contain the substring /search/{inp}")
 
 if testpass:
+    # Find the first checkbox element by XPath
+    checkbox_element = driver.find_element(By.XPATH, "//input[@type='checkbox']")
+    checkbox_element.click()
     print("Testing passed")
 else:
     print("Testing failed")
