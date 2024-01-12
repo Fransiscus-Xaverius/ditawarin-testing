@@ -22,7 +22,5 @@ driver.find_element(By.ID,'submit_btn').click()
 time.sleep(2)
 driver.switch_to.alert.accept()
 
-
-
 print("Testing is done")
 driver.quit()
